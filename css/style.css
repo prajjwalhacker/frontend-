@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+
+:root {
+  --white: white;
+  --grey: #e9ecef;
+  --darkgrey: #adb5bd;
+  --blue: #284b63;
+  --green: #3c6e71;
+  --light-blue: #20639b;
+  --ff-heading: 'Kaushan Script', cursive;
+  --ff-body: 'Poppins', sans-serif;
+  --ff-footer: 'Dancing Script', cursive;
+  --ff-header: 'Redressed, cursive;';
+  --ff-para: 'Mukta', sans-serif;
+  --primary-color:#22254b;
+  --secondary-color: #373b69;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  position: relative;
+}
+
+body,
+header,
+h2,
+.container,
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: black;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-bottom: 60px;
+}
+
+h2 {
+  font-family: var(--ff-heading);
+  color: white;
+  font-weight: 200;
+}
+
+/* header h2:hover {
+  color: white;
+} */
+
+header {
+  background-color: rgb(24,24,24);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hd-text {
+  margin-right: auto;
+  padding: 1rem;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  margin: 2rem;
+}
+
+.movie {
+  width: 300px;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.movie1 {
+  margin: 3rem;
+  border-radius: 4px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+}
+
+.movie1 img {
+  width: 100%;
+}
+
+.movie img {
+  width: 100%;
+}
+
+#conatiner1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 80%;
+  margin: 2rem;
+}
+
+.movie-info{
+  color:#eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info1{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  padding: 2rem;
+}
+
+.movie-info1 h4 {
+  font-family: var(--ff-body);
+}
+
+.movie-info1 h4 span {
+  font-family: var(--ff-heading);
+}
+
+.movie-info1 h3 {
+  font-family: var(--ff-heading);
+}
+
+.movie-info1 a {
+  color: white;
+}
+
+.movie-info h3 { 
+  margin-top: 0;
+}
+
+.movie-group span {
+  font-family: var(--ff-heading);
+  color: white;
+
+}
+.overview {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  max-height: 100%;
+  transform:translateY(101%);
+  transition:transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0)
+}
+
+input[type=button],
+select {
+  width: 80px;
+  height: 40px;
+  padding: 12px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: solid;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  background-color: transparent;
+}
+
+.hd-btn {
+  display: flex;
+  margin-left: auto;
+  justify-content: space-evenly;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.movie-group1 .img {
+  margin-bottom: 2rem;
+}
+
+.hd-btn a {
+  text-decoration: none;
+  color: white;
+  margin-right: 2rem;
+}
+
+.hd-btn a:hover {
+  color: white;
+}
+
+input[type=text],
+select {
+  padding: 1rem;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 80px;
+  height: 40px;
+  margin-bottom: 1rem;
+  color: black;
+  background-color: none;
+}
+
+.movie-group1{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.span-d span {
+  margin-right: 1rem;
+}
+
+.title-bar {
+  background-color: rgb(32,32,32);
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.title-bar h3 {
+  font-family: var(--ff-heading);
+}
+
+.pwd {
+  display: inline-block;
+  display: flex;
+}
+
+footer {
+  background-color: rgb(24,24,24);
+  color: white;
+  display: flex;
+  align-content: center;
+  width: 100%;
+  flex: 0 0 60px;
+  margin-top: auto;
+}
+
+.footer-text {
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.footer-icons {
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.footer-text h4 {
+  font-family: var(--ff-header);
+}
+
+.footer-icons ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.footer-icons ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.box-1 {
+  height: auto;
+}
+
+.footer-icons ul li .fa {
+  color: white;
+  font-size: 20px;
+  line-height: 15px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.footer-icons ul li .fa:hover {
+  color: #fff;
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  color: white;
+}
+
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: rgb(24,24,24);
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+@media screen and (min-width: 400px) {
+  #container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .movie-group1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

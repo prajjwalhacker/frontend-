@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    <header>
+        <div class="hd-text">
+            <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Movie City</h2></a>
+        </div>
+
+        <div class="hd-btn">
+                <div><a href="./createaccount.html"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></div>
+                 <div> <a href="./signin.html"><span class="glyphicon glyphicon-log-in"></span>  Login</a></div>
+        </div>
+    </header>
+
+    
+    <div id="container1">
+    </div>
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+            <h3 style="text-align: center;">Add a review</h3>
+    
+            <label for="Rating"><b>Your Rating</b></label>
+            <input type="text" placeholder="Enter your rating here" name="rating" id="rate" required>
+    
+            <label for="review"><b>Your Review</b></label>
+            <input type="text" placeholder="Enter your review here" name="description" id ="review" required>
+    
+            <button type="submit" class="btn">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-text">
+            <h4>Made with <span class="fa fa-heart"></span> by Team1</h4>
+        </div>
+        <div class="footer-icons">
+            <ul>
+                <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank"></a></li>
+                <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+                <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+            </ul>
+            
+        </div>
+    </footer>
+
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+
+        const formElement = document.querySelector(".form-container");
+  formElement.addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = new FormData(formElement);
+  formData.append("movie_name", localStorage.getItem("moviename"));
+  formData.append("email", localStorage.getItem("email"));
+  var object = {};
+formData.forEach((value, key) => object[key] = value);
+const json = JSON.stringify(object);
+    console.log(json);
+  const request = new Request('https://team1movieapp.herokuapp.com/api/reviews/myratings', {
+    method: 'POST',
+    headers : {
+    'Content-type': 'application/json; charset=UTF-8'
+    },
+    body: json
+  })
+  fetch(request).then(res => res.json()).then(data => {
+    alert(data.message);
+    if(data.message === "Not logged in"){
+        window.location.href = "signin.html";
+    }
+    else{
+        alert(data.message);
+    }
+    })
+    .catch(error => {
+        console.log("ss")
+        closeForm();
+        if(error === "Not logged in"){
+        window.location.href = "signin.html";
+    }
+    console.log(error.errors) //Prints list of errors
+    });
+});
+
+    </script>
+
+    <script src="./main.js"></script>
+    <script>
+        getMovie();
+    </script>
+</body>
+
+</html>

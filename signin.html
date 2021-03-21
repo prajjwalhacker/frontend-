@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/signup.css">
+</head>
+<body>
+  <header>
+    <div class="hd-text">
+        <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Movie City</h2></a>
+    </div>
+</header>
+
+<div class="form-box">
+  <div class="wrapper">
+    <h3>Sign-In</h3>
+    <div class="form">
+      <form class = "login">
+        <div class ='form-group'>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+        <div class ='form-group'>
+          <label for="password" class ='pwd'><span class="span-left">Password</span><span class='span-right'><a href="#">Forgot Password</a></span></label>
+          <input type="password" name="password" id="password" required>
+        </div class ='form-group'>
+        <button type="submit">Sign-In</button>
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text">
+      <h4>Made with <span class="fa fa-heart"></span> by Team1</h4>
+  </div>
+  <div class="footer-icons">
+      <ul>
+          <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank"></a></li>
+          <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+          <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+          <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+      </ul>
+      
+  </div>
+</footer>
+
+  
+  
+</body>
+
+<script>
+    const formElement = document.querySelector(".login");
+  formElement.addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = new FormData(formElement);
+  var object = {};
+formData.forEach((value, key) => object[key] = value);
+console.log(object["email"]);
+formData.append("movie_name", localStorage.setItem("email", object["email"]));
+const json = JSON.stringify(object);
+    console.log(json);
+  const request = new Request('http://localhost:3000/api/sessions', {
+    method: 'POST',
+    headers : {
+    'Content-type': 'application/json; charset=UTF-8'
+    },
+    body: json
+  })
+  fetch(request).then(res => res.json()).then(data => {
+    alert(data.message);
+    window.location.href = "index.html";
+    })
+    .catch(error => {
+      window.location.href = "index.html";
+    console.log(error.errors) //Prints list of errors
+    });
+});
+</script>
+</html>
